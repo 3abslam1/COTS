@@ -39,9 +39,11 @@ typedef struct
 	u8 Port;
 	u8 CommonType;
 	
-}SSD_configuration;
 }SSD_Configuration;
 
+void SSD_voidSSDInit(SSD_Configuration *Target_SSD);
+u8 SSD_u8SetNumber(SSD_Configuration *Target_SSD ,u8 Target_Number);
+u8 SSD_u8DisableCommon(SSD_Configuration *Target_SSD);
 
 
 #endif /* SSD_INTERFACE_H_ */
