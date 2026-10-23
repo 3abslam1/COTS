@@ -14,22 +14,22 @@
 
 static u8 seven_segment[10]={0b00111111,0b00000110,0b01011011,0b01001111,0b01100110,0b01101101,0b01111101,0b00000111,0b01111111,0b01101111};
 
-void SSD_voidSSDInit(SSD_configuration *target_SSD)
+void SSD_voidSSDInit(SSD_Configuration *Target_SSD)
 {
-	DIO_u8SetPortDirection(target_SSD->Port, DIO_u8PORT_OUTPUT);
+	DIO_u8SetPortDirection(Target_SSD->Port, DIO_u8PORT_OUTPUT);
 }
 
 
-u8 SSD_u8SetNumber(SSD_configuration *target_SSD ,u8 target_number)
+u8 SSD_u8SetNumber(SSD_Configuration *Target_SSD ,u8 Target_Number)
 {
 	u8 Local_u8ErrorState =0;
-	if( (target_SSD->CommonType <= COMMON_ANODE) && (target_number >= 0)   && (target_number<= 9)  )
+	if( (Target_SSD->CommonType <= COMMON_ANODE) && (Target_Number >= 0)   && (Target_Number<= 9)  )
 	{
-		if(target_SSD->CommonType == COMMON_ANODE){
-		DIO_u8SetPortValue(target_SSD->Port, ~seven_segment[target_number]);}
+		if(Target_SSD->CommonType == COMMON_ANODE){
+		DIO_u8SetPortValue(Target_SSD->Port, ~seven_segment[Target_Number]);}
 		
-		else if(target_SSD->CommonType == COMMON_CATHODE){
-		DIO_u8SetPortValue(target_SSD->Port, seven_segment[target_number]);
+		else if(Target_SSD->CommonType == COMMON_CATHODE){
+		DIO_u8SetPortValue(Target_SSD->Port, seven_segment[Target_Number]);
 		}
 	}
 	else{
@@ -40,16 +40,16 @@ u8 SSD_u8SetNumber(SSD_configuration *target_SSD ,u8 target_number)
 
 
 
-u8 SSD_u8DisableCommon(SSD_configuration *target_SSD)
+u8 SSD_u8DisableCommon(SSD_Configuration *Target_SSD)
 {
 	u8 Local_u8ErrorState =0;
-	if( target_SSD->CommonType <= COMMON_ANODE )
+	if( Target_SSD->CommonType <= COMMON_ANODE )
 	{
-		if(target_SSD->CommonType == COMMON_ANODE){
-		DIO_u8SetPortValue(target_SSD->Port, DIO_u8PORT_HIGH);}
+		if(Target_SSD->CommonType == COMMON_ANODE){
+		DIO_u8SetPortValue(Target_SSD->Port, DIO_u8PORT_HIGH);}
 		
-		else if(target_SSD->CommonType == COMMON_CATHODE){
-		DIO_u8SetPortValue(target_SSD->Port, DIO_u8PORT_LOW);
+		else if(Target_SSD->CommonType == COMMON_CATHODE){
+		DIO_u8SetPortValue(Target_SSD->Port, DIO_u8PORT_LOW);
 		}
 	}
 	else{

@@ -40,10 +40,8 @@ typedef struct
 	u8 CommonType;
 	
 }SSD_configuration;
+}SSD_Configuration;
 
-void SSD_voidSSDInit(SSD_configuration *target_SSD);
-u8 SSD_u8SetNumber(SSD_configuration *target_SSD ,u8 target_number);
-u8 SSD_u8DisableCommon(SSD_configuration *target_SSD);
 
 
 #endif /* SSD_INTERFACE_H_ */
