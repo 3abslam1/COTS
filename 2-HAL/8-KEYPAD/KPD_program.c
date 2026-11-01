@@ -14,25 +14,22 @@
 
 void KPD_voidInit(void)
 {
-	DIO_u8SetPinDirection(KPD_PORT , KPD_COLUMN0_PIN , DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(KPD_PORT , KPD_COLUMN1_PIN , DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(KPD_PORT , KPD_COLUMN2_PIN , DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(KPD_PORT , KPD_COLUMN3_PIN , DIO_u8PIN_OUTPUT);
+	u8 Local_u8ColumnIdx = 0;
+	u8 Local_u8RowIdx = 0;
+
+	static u8 Local_u8KPDColumnArr [COLUMN_NUM] = {KPD_COLUMN0_PIN , KPD_COLUMN1_PIN , KPD_COLUMN2_PIN , KPD_COLUMN3_PIN};
+	static u8 Local_u8KPDROWArr    [ROW_NUM]    = {KPD_ROW0_PIN    , KPD_ROW1_PIN    , KPD_ROW2_PIN    , KPD_ROW3_PIN};
 	
-	DIO_u8SetPinDirection(KPD_PORT , KPD_ROW0_PIN , DIO_u8PIN_INPUT);
-	DIO_u8SetPinDirection(KPD_PORT , KPD_ROW1_PIN , DIO_u8PIN_INPUT);
-	DIO_u8SetPinDirection(KPD_PORT , KPD_ROW2_PIN , DIO_u8PIN_INPUT);
-	DIO_u8SetPinDirection(KPD_PORT , KPD_ROW3_PIN , DIO_u8PIN_INPUT);
+	for(Local_u8ColumnIdx=0 ; Local_u8ColumnIdx< COLUMN_NUM ; Local_u8ColumnIdx++ ){	
+	DIO_u8SetPinDirection(KPD_PORT , Local_u8KPDColumnArr[Local_u8ColumnIdx] , DIO_u8PIN_OUTPUT);
+	DIO_u8SetPinValue(KPD_PORT , Local_u8KPDColumnArr[Local_u8ColumnIdx] , DIO_u8PIN_HIGH);
+    }
 	
-	DIO_u8SetPinValue(KPD_PORT , KPD_ROW0_PIN , DIO_u8PIN_HIGH);
-	DIO_u8SetPinValue(KPD_PORT , KPD_ROW1_PIN , DIO_u8PIN_HIGH);
-	DIO_u8SetPinValue(KPD_PORT , KPD_ROW2_PIN , DIO_u8PIN_HIGH);
-	DIO_u8SetPinValue(KPD_PORT , KPD_ROW3_PIN , DIO_u8PIN_HIGH);
+	for(Local_u8RowIdx=0 ; Local_u8RowIdx< ROW_NUM ; Local_u8RowIdx++ ){
+	DIO_u8SetPinDirection(KPD_PORT , Local_u8KPDROWArr[Local_u8RowIdx] , DIO_u8PIN_INPUT);
+    DIO_u8SetPinValue(KPD_PORT , Local_u8KPDROWArr[Local_u8RowIdx] , DIO_u8PIN_HIGH);
+	}
 	
-	DIO_u8SetPinValue(KPD_PORT , KPD_COLUMN0_PIN , DIO_u8PIN_HIGH);
-	DIO_u8SetPinValue(KPD_PORT , KPD_COLUMN1_PIN , DIO_u8PIN_HIGH);
-	DIO_u8SetPinValue(KPD_PORT , KPD_COLUMN2_PIN , DIO_u8PIN_HIGH);
-	DIO_u8SetPinValue(KPD_PORT , KPD_COLUMN3_PIN , DIO_u8PIN_HIGH);
 }
 
 u8 KPD_u8GetPressedKey(void)
