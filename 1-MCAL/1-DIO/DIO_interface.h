@@ -16,7 +16,7 @@
 #define DIO_u8PIN_INPUT           0
 
 #define DIO_u8PORT_OUTPUT         0xFF
-#define DIO_u8PORT_INPUT           0
+#define DIO_u8PORT_INPUT          0x00
 
 #define DIO_u8PIN_HIGH            1
 #define DIO_u8PIN_LOW             0
