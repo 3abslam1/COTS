@@ -26,8 +26,6 @@
 #define KPD_ROW2_PIN           DIO_u8PIN2 
 #define KPD_ROW3_PIN           DIO_u8PIN3 
 
-#define KPD_NO_PRESSED_KEY     0xff
-
 #define KPD_ARR_VAL { {7,8,9,10},{4,5,6,11},{1,2,3,12},{14,0,15,13} }
 
 #endif /*KPD_CONFIG_H_*/
