@@ -15,6 +15,7 @@
 #include "../../LIB/BIT_MATH.h"
 #include "../../MCAL/DIO/DIO_interface.h"
 
+void KPD_voidInit(void);
 u8 KPD_u8GetPressedKey(void);
 
 

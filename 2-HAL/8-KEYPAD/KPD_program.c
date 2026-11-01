@@ -12,6 +12,10 @@
 #include "KPD_config.h"
 #include "KPD_private.h"
 
+void KPD_voidInit(void)
+{
+	DIO_u8SetPortDirection(KPD_PORT,DIO_u8PORT_INPUT);
+}
 
 u8 KPD_u8GetPressedKey(void)
 {
