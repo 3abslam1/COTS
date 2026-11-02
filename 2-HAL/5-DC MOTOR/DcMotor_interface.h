@@ -15,8 +15,8 @@
 #include "../../MCAL/DIO/DIO_interface.h"
 
 
-#define CLOCK_WISE             1
-#define COUNTER_CLOCK_WISE     2
+#define CLOCK_WISE             0
+#define COUNTER_CLOCK_WISE     1
 
 typedef struct
 {
@@ -25,8 +25,8 @@ typedef struct
 	u8 piny;
 }DCMOTOR_Configuration;
 
-void DCMOTOR_voidInit(DCMOTOR_Configuration * target_Motor);
-void DCMOTOR_voidMove(DCMOTOR_Configuration * target_Motor , u8 Motor_Rotation );
-void DCMOTOR_voidStop(DCMOTOR_Configuration * target_Motor);
+void DCMOTOR_voidInit(DCMOTOR_Configuration * Target_Motor);
+void DCMOTOR_voidMove(DCMOTOR_Configuration * Target_Motor , u8 Motor_Rotation );
+void DCMOTOR_voidStop(DCMOTOR_Configuration * Target_Motor);
 
 #endif /* DCMOTOR_INTERFACE_H_ */
